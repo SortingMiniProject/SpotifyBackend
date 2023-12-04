@@ -3,6 +3,7 @@ package com.nighthawk.spring_portfolio.mvc.cities; // Adjust the package name as
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ import java.util.function.Function;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://127.0.0.1:8085")
 public class CityController {
 
     private final String jsonFilePath = "cities.json"; // Adjust the path if necessary
