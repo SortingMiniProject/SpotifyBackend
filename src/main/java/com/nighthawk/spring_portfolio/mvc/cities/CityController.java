@@ -15,7 +15,7 @@ import java.util.function.Function;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://127.0.0.1:8085")
+@CrossOrigin(origins = "http://127.0.0.1:4100")
 public class CityController {
 
     private final String jsonFilePath = "cities.json"; // Adjust the path if necessary
