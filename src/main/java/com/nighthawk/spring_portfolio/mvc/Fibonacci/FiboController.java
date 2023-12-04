@@ -22,10 +22,12 @@ import java.util.function.Function;
 public class FiboController {
     @GetMapping("/fibofor")
     public ResponseEntity<?> getFor(int n) {
+        // Starts the time using nanoTime
         long startTime = System.nanoTime();
         long[] fiboFor = FibonacciFor.calculateFibonacci(n);
         long endTime = System.nanoTime();
         double durationInSeconds = (endTime - startTime) / 1_000_000_000.0;
+        // Make the user's response as an object
         var response = new Object() {
             public final long[] fiboForRes = fiboFor;
             public final double timeInSeconds = durationInSeconds;
@@ -42,11 +44,14 @@ public class FiboController {
         long[] fiboWhile = FibonacciWhile.calculateFibonacci(n);
         long endTime = System.nanoTime();
         double durationInSeconds = (endTime - startTime) / 1_000_000_000.0;
+        // Makes user's response as an object
         var response = new Object() {
             public final long[] fiboWhileRes = fiboWhile;
             public final double timeInSeconds = durationInSeconds;
         };
+        
         HttpHeaders responseHeaders = new HttpHeaders();
+        // Uncomment the line below if we need to set specific access control headers
         // responseHeaders.set("Access-Control-Allow-Origin", "*");
         // return ResponseEntity.ok().headers(responseHeaders).body(response);
         return ResponseEntity.ok(response);
@@ -58,6 +63,7 @@ public class FiboController {
         long endTime = System.nanoTime();
         double durationInSeconds = (endTime - startTime) / 1_000_000_000.0;
         var response = new Object() {
+            // Parameters question
             public final long[] fiboRecursiveRes = fiboRecursive;
             public final double timeInSeconds = durationInSeconds;
         };
@@ -66,6 +72,7 @@ public class FiboController {
         // return ResponseEntity.ok().headers(responseHeaders).body(response);
         return ResponseEntity.ok(response);
     }
+    // While Loop Endpoint
     @GetMapping("/fibostream")
     public ResponseEntity<?> getStream(int n) {
         long startTime = System.nanoTime();
