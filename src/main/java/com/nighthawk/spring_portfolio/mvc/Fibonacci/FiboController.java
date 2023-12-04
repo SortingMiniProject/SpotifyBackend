@@ -18,7 +18,7 @@ import java.util.function.Function;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://127.0.0.1:8085")
+@CrossOrigin(origins = "http://127.0.0.1:4100")
 public class FiboController {
     @GetMapping("/fibofor")
     public ResponseEntity<?> getFor(int n) {
@@ -47,9 +47,9 @@ public class FiboController {
             public final double timeInSeconds = durationInSeconds;
         };
         HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.set("Access-Control-Allow-Origin", "*");
-        return ResponseEntity.ok().headers(responseHeaders).body(response);
-        // return ResponseEntity.ok(response);
+        // responseHeaders.set("Access-Control-Allow-Origin", "*");
+        // return ResponseEntity.ok().headers(responseHeaders).body(response);
+        return ResponseEntity.ok(response);
     }
     @GetMapping("/fiborecursive")
     public ResponseEntity<?> getRecursive(int n) {
@@ -62,9 +62,9 @@ public class FiboController {
             public final double timeInSeconds = durationInSeconds;
         };
         HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.set("Access-Control-Allow-Origin", "*");
-        return ResponseEntity.ok().headers(responseHeaders).body(response);
-        // return ResponseEntity.ok(response);
+        // responseHeaders.set("Access-Control-Allow-Origin", "*");
+        // return ResponseEntity.ok().headers(responseHeaders).body(response);
+        return ResponseEntity.ok(response);
     }
     @GetMapping("/fibostream")
     public ResponseEntity<?> getStream(int n) {
@@ -77,8 +77,8 @@ public class FiboController {
             public final double timeInSeconds = durationInSeconds;
         };
                 HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.set("Access-Control-Allow-Origin", "*");
-        return ResponseEntity.ok().headers(responseHeaders).body(response);
-        // return ResponseEntity.ok(response);
+        // responseHeaders.set("Access-Control-Allow-Origin", "*");
+        // return ResponseEntity.ok().headers(responseHeaders).body(response);
+        return ResponseEntity.ok(response);
     }
 }

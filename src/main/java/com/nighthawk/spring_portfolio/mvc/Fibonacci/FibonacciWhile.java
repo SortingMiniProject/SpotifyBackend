@@ -1,6 +1,6 @@
 package com.nighthawk.spring_portfolio.mvc.Fibonacci;
 
-public class FibonacciWhile {
+public class FibonacciWhile extends Fibonacci {
     public static long[] calculateFibonacci(int n) {
         if (n <= 0) {
             System.out.println("Invalid input. N should be a positive integer.");

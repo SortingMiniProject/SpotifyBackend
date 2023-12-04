@@ -2,7 +2,7 @@ package com.nighthawk.spring_portfolio.mvc.Fibonacci;
 
 import java.util.stream.Stream;
 
-public class FibonacciStream {
+public class FibonacciStream extends Fibonacci {
     public static long[] calculateFibonacci(int n) {
         if (n <= 0) {
             System.out.println("Invalid input. N should be a positive integer.");
