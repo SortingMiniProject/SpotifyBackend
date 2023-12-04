@@ -16,7 +16,7 @@ import java.util.function.Function;
 @RequestMapping("/api")
 public class CityController {
 
-    private final String jsonFilePath = "src/main/resources/cities.json"; // Adjust the path if necessary
+    private final String jsonFilePath = "cities.json"; // Adjust the path if necessary
 
     private List<String> loadCityNames() {
         ObjectMapper mapper = new ObjectMapper();
