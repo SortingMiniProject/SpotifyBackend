@@ -1,11 +1,17 @@
-package com.nighthawk.spring_portfolio.mvc.cities; // Adjust the package name as per your project structure
+package com.nighthawk.spring_portfolio.mvc.cities;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class SortingAlgorithms {
+// Abstract base class
+abstract class SortingAlgorithms {
+    public abstract List<String> sort(List<String> data);
+}
 
-    // Bubble Sort
-    public static List<String> bubbleSort(List<String> data) {
+// Bubble Sort implementation
+class BubbleSort extends SortingAlgorithms {
+    @Override
+    public List<String> sort(List<String> data) {
         int n = data.size();
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
@@ -18,9 +24,12 @@ public class SortingAlgorithms {
         }
         return data;
     }
+}
 
-    // Insertion Sort
-    public static List<String> insertionSort(List<String> data) {
+// Insertion Sort implementation
+class InsertionSort extends SortingAlgorithms {
+    @Override
+    public List<String> sort(List<String> data) {
         for (int i = 1; i < data.size(); i++) {
             String key = data.get(i);
             int j = i - 1;
@@ -33,9 +42,12 @@ public class SortingAlgorithms {
         }
         return data;
     }
+}
 
-    // Merge Sort
-    public static List<String> mergeSort(List<String> data) {
+// Merge Sort implementation
+class MergeSort extends SortingAlgorithms {
+    @Override
+    public List<String> sort(List<String> data) {
         if (data.size() <= 1) {
             return data;
         }
@@ -47,7 +59,7 @@ public class SortingAlgorithms {
         return merge(mergeSort(left), mergeSort(right));
     }
 
-    private static List<String> merge(List<String> left, List<String> right) {
+    private List<String> merge(List<String> left, List<String> right) {
         List<String> result = new ArrayList<>();
         int leftIndex = 0, rightIndex = 0;
 
@@ -65,8 +77,23 @@ public class SortingAlgorithms {
         return result;
     }
 
-    // Selection Sort
-    public static List<String> selectionSort(List<String> data) {
+    private List<String> mergeSort(List<String> data) {
+        if (data.size() <= 1) {
+            return data;
+        }
+
+        int mid = data.size() / 2;
+        List<String> left = new ArrayList<>(data.subList(0, mid));
+        List<String> right = new ArrayList<>(data.subList(mid, data.size()));
+
+        return merge(mergeSort(left), mergeSort(right));
+    }
+}
+
+// Selection Sort implementation
+class SelectionSort extends SortingAlgorithms {
+    @Override
+    public List<String> sort(List<String> data) {
         for (int i = 0; i < data.size() - 1; i++) {
             int minIdx = i;
             for (int j = i + 1; j < data.size(); j++) {

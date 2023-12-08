@@ -2,7 +2,6 @@ package com.nighthawk.spring_portfolio.mvc.Fibonacci;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nighthawk.spring_portfolio.mvc.cities.SortingAlgorithms;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpHeaders;
